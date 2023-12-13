@@ -5,24 +5,20 @@ public class App
     public static void main( String[] args )
     {
         double x;
-        double g = 9.807;
+        double g = 1;
+        double g2 = 2;
+        double g3 = 3;
         double step = 1;
-        double tolerance = 0.0001;
         boolean solutionFound = false;
 
         x = 10;
         while (x <= 1000000000) {
-            double equation1 = Math.cos(Math.sqrt(0.2/g)*x);
-            double equation2 = Math.cos(Math.sqrt(0.21/g)*x);
-            double equation3 = Math.cos(Math.sqrt(0.22/g)*x);
-            double equation4 = Math.cos(Math.sqrt(0.23/g)*x);
-            double equation5 = Math.cos(Math.sqrt(0.24/g)*x);
+            double equation1 = Math.cos(g*x);
+            double equation2 = Math.cos(g2*x);
+            Double equation3 = Math.cos(g3*x);
 
-            if (Math.abs(equation1 - equation2) <= tolerance &&
-                Math.abs(equation2 - equation3) <= tolerance &&
-                Math.abs(equation3 - equation4) <= tolerance &&
-                Math.abs(equation4 - equation5) <= tolerance) {
-                System.out.println(x);
+            if (equation1 == equation2 && equation2 ==  equation3){
+                System.out.printf("%.1f%n", x);
                 solutionFound = true;
             }
             x += step;
